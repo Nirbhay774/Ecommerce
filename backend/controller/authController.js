@@ -82,7 +82,7 @@ export const loginControllers = async (req, res , next) => {
   // console.log(email)
 
   try {
-
+    
     const presentLog = await UserModel.findOne({ email })
     console.log("presentLog==>",presentLog)
 
@@ -139,31 +139,10 @@ userId: presentLog.id,
 
 }
 
-export const isAdmin =async (req , res )=>{
-const {email} = req.body;
-
-  try {
-    const user= await UserModel.findOne({ email })
-  
-    if(user.role !==1){
-      return res.status(303).send({
-        massage:"you are anauthorized person",
-
-      })
-    }
-    else{
-       next()
-    }
-
-  } catch (error) {
-    res.json(error)
-    console.log(error)
-    
-  }
 
 
 
-}
+
 
 
 

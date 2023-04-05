@@ -11,6 +11,9 @@ import  env from 'dotenv'
 import Connection  from './config/db.js';
 
 import auth from './routes/auth.js';
+import category from './routes/CategoryRoute.js';
+import product from './routes/ProductRoute.js'
+
 //config env 
 env.config()
 
@@ -38,6 +41,11 @@ Connection();
 
 app.use('/api/v1/auth' , auth)
 
+//this is the product route 
+
+app.use('/api/v1/product' , product)
+
+app.use('/api/v1/category' , category)
 console.log(process.env.name)
 app.listen(port , ()=>{
     console.log("The app is running at "  +port )
