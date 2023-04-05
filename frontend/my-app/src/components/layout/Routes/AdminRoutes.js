@@ -8,44 +8,36 @@ import Sppiner from "../Sppiner";
 
 
 function AdminRoute() {
-const [ok, setok] = useState(false);
+const [ok, setOk] = useState(false);
  const {auth , setauth} = useAuth();
 
  //here we check the token and also res . ok so we get that then our route will be protected 
     useEffect(() => {
-
- const Autherization =async (req , res )=>{
-    const authCheck= await axios.get("http://localhost:3500/api/v1/auth/adminRoute" , {
-
-headers:{
-    "Authorization":auth?.token
-}
-        
-    })
-
-    //here we check we get the data from the backend in form of data 
-
-    if(authCheck.data.ok){
-        setok(true)
-    }
-    else{
-        setok(false)
-    }
-//here we also call above function when token is get 
-
-
-if(auth?.token){
-    return Autherization();
-    
-}
+        const fetchData = async () => {
+            try {
+              const response = await axios.get(
+                "http://localhost:3500/api/v1/auth/authroute"
+              );
+              console.log(response);
+              if (response.data.ok) {
+                setOk(true);
+              }
+            } catch (error) {   
+              console.error(error);
+            }
+          };
+          fetchData();  
+         }
 
 
 
- }
-    }, []);
 
 
-return ok?<Outlet/>:<Sppiner/>
+ 
+    , [auth?.token]);
+
+
+return ok?<Outlet/>:<Sppiner path="home"/>
 }
 
 export default AdminRoute;

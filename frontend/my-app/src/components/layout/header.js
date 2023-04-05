@@ -7,6 +7,7 @@ const Header = () => {
  const navigate = useNavigate()
 
  const {auth , setauth } = useAuth();
+//  console.log(auth)
 
 //logout functionality 
 
@@ -19,7 +20,7 @@ setauth({
     token:""
 })
 }
-
+// console.log(auth.user)
 
 
   return (
@@ -38,16 +39,29 @@ setauth({
             <span className="navbar-toggler-icon" />
           </button>
           <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <Link to="/" className="navbar-brand">
-              🛒 Ecommerce App
+            <Link to="/login" className="navbar-brand">
+              🛒 Ecommerce Appst
             </Link>
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               {/* <SearchInput /> */}
               <li className="nav-item">
-                <NavLink to="/" className="nav-link ">
+                <NavLink to="/home" className="nav-link ">
                   Home
                 </NavLink>
               </li>
+
+              <li>
+             <NavLink
+                          to={`/dashbord/${
+                            auth?.user?.role === 1 ? "admin": "user"
+                          }`}
+                          className="dropdown-item"
+                        >
+                          Dashboard
+                        </NavLink>
+                      </li>
+
+
 
               <li className="nav-item">
                 <NavLink to="/login" className="nav-link ">
