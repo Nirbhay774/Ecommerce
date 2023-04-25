@@ -3,6 +3,8 @@
 
 import React from "react";
 import { NavLink } from "react-router-dom";
+
+
 const AdminMenu = () => {
   return (
     <>
@@ -22,7 +24,7 @@ const AdminMenu = () => {
             Create Product
           </NavLink>
           <NavLink
-            to="/dashbord/admin/products"
+            to="/dashbord/admin/product"
             className="list-group-item list-group-item-action"
           >
             Products

@@ -4,11 +4,12 @@
 import express from 'express'
 import morgan from 'morgan';
 import cors from 'cors';
+import path from 'path'
 
 
 const app = express();
 import  env from 'dotenv'
-import Connection  from './config/db.js';
+import Connection  from './config/db.js';   
 
 import auth from './routes/auth.js';
 import category from './routes/CategoryRoute.js';
@@ -46,7 +47,6 @@ app.use('/api/v1/auth' , auth)
 app.use('/api/v1/product' , product)
 
 app.use('/api/v1/category' , category)
-console.log(process.env.name)
 app.listen(port , ()=>{
     console.log("The app is running at "  +port )
 })

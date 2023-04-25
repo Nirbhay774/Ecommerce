@@ -28,7 +28,7 @@ e.preventDefault();
         password
     
     })
-    console.log()
+    console.log("res==>" , res )
 
     if(res.data.User.email === email){
  //here whatever come in res we wite in massge , token which is contain in the "res.data" 
@@ -41,7 +41,7 @@ e.preventDefault();
         localStorage.setItem('auth' ,JSON.stringify(res.data))
         
         // console.log("res==>"    ,res.data.User)
-        navigate('/dashbord');
+        navigate('/home');
         alert("login succes ")
 
 

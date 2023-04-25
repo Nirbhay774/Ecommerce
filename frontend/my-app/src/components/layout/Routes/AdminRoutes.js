@@ -8,8 +8,9 @@ import Sppiner from "../Sppiner";
 
 
 function AdminRoute() {
-const [ok, setOk] = useState(false);
+const [ok, setOk] = useState(true);
  const {auth , setauth} = useAuth();
+
 
  //here we check the token and also res . ok so we get that then our route will be protected 
     useEffect(() => {

@@ -1,4 +1,6 @@
-import { createContext, useContext , useState , react , useEffect } from "react";
+import axios from "axios";
+import { createContext, useContext , useState , useEffect } from "react";
+// import React from "react";
 
 
 //create contex 
@@ -12,6 +14,12 @@ const AuthProvider =(props)=>{
         user:null , 
         token:""
     });
+//default axios
+axios.defaults.headers.common["Authorization"] = auth?.token;
+
+
+
+
 //Here we set the functionality when we refresss page the also we continue on this page 
  useEffect((req, res) => {
 //here we define functionality 

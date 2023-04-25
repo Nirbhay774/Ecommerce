@@ -1,0 +1,6 @@
+.my-foot{
+    display: flex; 
+    flex-direction: row;
+gap:34px;
+justify-content: center ;
+}

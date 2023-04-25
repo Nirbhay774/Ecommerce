@@ -27,7 +27,7 @@ e.preventDefault();
         address  
     })
     if(res){
-        res.send("succes")
+        alert("register success")
         console.log(res)
     }
     else{
