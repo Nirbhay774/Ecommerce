@@ -4,7 +4,7 @@
 import express from 'express'
 import morgan from 'morgan';
 import cors from 'cors';
-import path from 'path'
+import path, { dirname } from 'path'
 
 
 const app = express();
@@ -24,12 +24,17 @@ app.use(cors());
 
 app.use(express.json())
 app.use(morgan('dev'))
+app.use(express.static(path.join(--dirname ,"../frontend/my-app/build")))
 
 app.get("/" , (req,res)=>{
     res.send({
         name:"Ecommerce website"
     })
     
+})
+
+app.use("*" , function(req ,res){
+    res.sendFile(path.join(--dirname ,"../frontend/my-app/build/index.html"))
 })
 const port = 3500;
 
